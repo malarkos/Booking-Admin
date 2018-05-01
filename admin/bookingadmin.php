@@ -11,7 +11,8 @@
 defined('_JEXEC') or die('Restricted access');
 // Set some global property
 $document = JFactory::getDocument();
- 
+
+// Load bookings helper
 JLoader::register('BookingsHelper', __DIR__ . '/helpers/bookingshelper.php');
 // Get an instance of the controller prefixed by HelloWorld
 $controller = JControllerLegacy::getInstance('BookingAdmin');

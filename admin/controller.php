@@ -25,5 +25,7 @@ class BookingAdminController extends JControllerLegacy
 	 * @var string
 	 * @since 12.2
 	 */
+    
+    // Set default view as different to module name
 	protected $default_view = 'bookings';
 }
