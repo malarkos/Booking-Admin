@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset addfieldpath="/administrator/components/com_bookingadmin/models/fields">
+		<field
+				name="bookid"
+				type="hidden"
+				/>
+		<field
+				name="bookingref"
+				type="text"
+				label="COM_BOOKINGADMIN_BOOKINGREF_LABEL"
+				description="COM_BOOKINGADMIN_BOOKINGREF_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				readonly="true"
+				/>
+		<field name="memid" type="memberlist"
+			label="COM_BOOKINGADMIN_BOOKINGMEMBER_LABEL" description="COM_BOOKINGADMIN_BOOKINGMEMBER_DESC"
+			default="" />
+		<field
+				name="bookingcost"
+				type="text"
+				label="COM_BOOKINGADMIN_BOOKINGCOST_LABEL"
+				description="COM_BOOKINGADMIN_BOOKINGCOST_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				
+				/>
+				<field
+				name="amountpaid"
+				type="text"
+				label="COM_BOOKINGADMIN_AMOUNTPAID_LABEL"
+				description="COM_BOOKINGADMIN_AMOUNTPAID_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				
+				/>
+				
+			<field name="paymentmethod" type="list"
+				label="COM_BOOKINGADMIN_PAYMENTMETHOD_LABEL" description="COM_BOOKINGADMIN_PAYMENTMETHOD_DESC"
+				class="inputbox" default="">
+				<option value=""></option>
+				<option value="internettransfer">Internet Transfer</option>
+				<option value="cheque">Cheque</option>
+			</field>
+			
+				<field name="bookingpaid" type="list"
+			label="COM_BOOKINGADMIN_BOOKING_PAID_LABEL" description="COM_BOOKINGADMIN_BOOKING_PAID_DESC"
+			class="inputbox" default="No">
+			<option value="No">No</option>
+			<option value="Yes">Yes</option>
+
+			</field>
+			<field name="bookingstatus" type="list"
+			label="COM_BOOKINGADMIN_DETAIL_BOOKINGSTATUS" description="COM_BOOKINGADMIN_DETAIL_BOOKINGSTATUS"
+			class="inputbox">
+			<option value="Draft">Draft</option>
+			<option value="Booked">Booked</option>
+			<option value="Approved">Approved</option>
+			<option value="Confirmed">Confirmed</option>
+			<option value="Cancelled">Cancelled</option>
+			</field>
+				<field
+				name="comment"
+				type="textarea"
+				label="COM_BOOKINGADMIN_COMMENT_LABEL"
+				description="COM_BOOKINGADMIN_COMMENT_DESC"
+				rows="3"
+				class="inputbox"
+				default=""
+				
+				/>
+	</fieldset>
+</form>

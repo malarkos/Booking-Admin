@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset 
+		name="booking"
+		label="COM_BOOKINGADMIN_BOOKING"
+		addfieldpath="/administrator/components/com_bookingadmin/models/fields">
+		<field name="id" type="hidden" />
+		<field name="cost" type="hidden" />
+		<field
+				name="guestnum"
+				type="text"
+				label="COM_BOOKINGADMIN_DETAIL_GUESTNUM_LABEL"
+				description="COM_BOOKINGADMIN_DETAIL_GUESTNUM_LABEL"
+				size="40"
+				class="inputbox"
+				default=""
+				readonly="true"
+				/>
+		<field
+				name="memguest"
+				type="list"
+				label="COM_BOOKINGADMIN_DETAIL_MEMGUEST_LABEL"
+				description="COM_BOOKINGADMIN_DETAIL_MEMGUEST_DESC"
+				class="inputbox"
+				default="m"
+				>
+			 <option value="m" >Member</option>
+		  	 <option value="f" >Family Member</option>
+		  	 <option value="b" >Buddy</option>
+		  	 <option value="g" >Guest</option>
+
+		</field>
+		
+		<field name="memberval" type="memberlist"
+			label="COM_BOOKINGADMIN_BOOKINGMEMBER_LABEL" 
+			description="COM_BOOKINGADMIN_BOOKINGMEMBER_DESC"
+			showon="memguest:m"
+			default="" />
+			
+			<field name="fammemberval" type="familymemberlist"
+			label="COM_BOOKINGADMIN_FAMILYMEMBER_LABEL" 
+			description="COM_BOOKINGADMIN_FAMILYMEMBER_DESC"
+			default="" 
+			showon="memguest:f"
+			/>
+	
+		
+		<field
+				name="guestfirstname"
+				type="text"
+				label="COM_MEMBERS_MEMBER_GUESTFIRSTNAME_LABEL"
+				description="COM_MEMBERS_MEMBER_GUESTFIRSTNAME_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				showon="memguest:b[OR]memguest:g"
+				/>
+		<field
+				name="guestsurname"
+				type="text"
+				label="COM_MEMBERS_MEMBER_GUESTSURNAME_LABEL"
+				description="COM_MEMBERS_MEMBER_GUESTSURNAME_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				showon="memguest:b[OR]memguest:g"
+				/>
+		<field
+				name="age"
+				type="list"
+				label="COM_BOOKINGADMIN_DETAIL_AGE_LABEL"
+				description="COM_BOOKINGADMIN_DETAIL_AGE_DESC"
+				class="inputbox"
+				default="26+"
+				>
+			 <option value="26+" >26+</option>
+		  	 <option value="18-25" >18-25</option>
+		  	 <option value="3-17" >3-17</option>
+		  	 <option value="0-2" >0-2</option>
+
+		</field>
+		<field
+				name="gender"
+				type="list"
+				label="COM_BOOKINGADMIN_DETAIL_GENDER_LABEL"
+				description="COM_BOOKINGADMIN_DETAIL_GENDER_DESC"
+				class="inputbox"
+				default="M"
+				>
+			 <option value="m" >Male</option>
+		  	 <option value="f" >Female</option>
+		  
+
+		</field>
+		<field
+				name="wpdisc"
+				type="list"
+				label="COM_BOOKINGADMIN_DETAIL_WPDISC_LABEL"
+				description="COM_BOOKINGADMIN_DETAIL_WPDISC_DISC"
+				class="inputbox"
+				default="0"
+				>
+			 <option value="0" >0</option>
+		  	 <option value="20" >20</option>
+		  	 <option value="30" >30</option>
+		  	 <option value="40" >40</option>
+		  	 <option value="50" >50</option>
+		  	 <option value="60" >60</option>
+		  	 <option value="70" >70</option>
+		  	 <option value="80" >80</option>
+
+		</field>
+		<field
+				name="vegetarian"
+				type="list"
+				label="COM_BOOKINGADMIN_DETAIL_VEG_LABEL"
+				description="COM_BOOKINGADMIN_DETAIL_VEG_DESC"
+				class="inputbox"
+				default="n"
+				>
+			 <option value="n" >No</option>
+		  	 <option value="y" >Yes</option>
+		  	
+
+		</field>
+		<field
+				name="fridaydinner"
+				type="list"
+				label="COM_BOOKINGADMIN_DETAIL_FIRSTNIGHT_LABEL"
+				description="COM_BOOKINGADMIN_DETAIL_FIRSTNIGHT_LABEL"
+				class="inputbox"
+				default="n"
+				>
+			 <option value="n" >No</option>
+		  	 <option value="y" >Yes</option>
+		  	
+
+		</field>
+		
+		<field
+			name="datein"
+			type="calendar"
+			
+			label="COM_BOOKINGADMIN_DETAIL_DATEIN"
+			description="COM_BOOKINGADMIN_DETAIL_DATEIN"
+			required="true"
+			format="%Y-%m-%d"
+			size="22"
+			filter="user_utc"
+		/>
+		<field
+			name="dateout"
+			type="calendar"
+			
+			label="COM_BOOKINGADMIN_DETAIL_DATEOUT"
+			description="COM_BOOKINGADMIN_DETAIL_DATEOUT"
+			required="true"
+			format="%Y-%m-%d"
+			size="22"
+			filter="user_utc"
+		/>
+		<field
+				name="room"
+				type="list"
+				label="COM_BOOKINGADMIN_DETAIL_ROOM_LABEL"
+				description="COM_BOOKINGADMIN_DETAIL_ROOM_DESC"
+				class="inputbox"
+				default="Any"
+				>
+			 <option value="Any" >Any</option>
+		  	 <option value="Rm 1" >Rm 1</option>
+		  	 <option value="Rm 2" >Rm 2</option>
+		  	 <option value="Rm 3" >Rm 3</option>
+		  	 <option value="Rm 4" >Rm 4</option>
+		  	 <option value="Rm 5">Rm 5</option>
+		  	 <option value="Rm 6">Rm 6</option>
+		  	 <option value="Rm 7">Rm 7</option>
+		  	 <option value="Rm 8">Rm 8</option>
+		  	 <option value="Rm 9">Rm 9</option>
+		  	 <option value="Rm 10">Rm 10</option>
+		  	 <option value="Rm 11">Rm 11</option>
+		  	 <option value="Rm 12">Rm 12</option>
+		  	 <option value="Rm 14">Rm 14</option>
+		  	 <option value="Rm 15">Rm 15</option>
+		</field>
+		<field
+				name="bookinglistdisplay"
+				type="list"
+				label="COM_BOOKINGADMIN_DETAIL_BOOKINGLISTDISPLAY_LABEL"
+				description="COM_BOOKINGADMIN_DETAIL_BOOKINGLISTDISPLAY_LABEL"
+				class="inputbox"
+				default="y"
+				>
+			 <option value="n" >No</option>
+		  	 <option value="y" >Yes</option>
+		  	
+
+		</field>
+		<field 	name="lastmodified" 
+				type="lastmodified"
+				label="COM_BOOKINGADMIN_LASTMODIFIED_LABEL" 
+				description="COM_BOOKINGADMIN_LASTMODIFIED_DESC" 
+				readonly="true"
+				/>	
+	</fieldset>
+</form>

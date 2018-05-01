@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="50thbooking">
+	<fieldset name="50thbooking" label="Edit 50th Anniversary booking" addfieldpath="/administrator/components/com_bookingadmin/models/fields">
+ 
+        <field
+            name="id"
+            type="hidden"
+           
+            />
+       
+       <field
+            name="GuestFirstname"
+            type="text"
+	        description="First name"
+	        label="First name"
+	        class="inputbox"
+			default=""
+	        size="50" />
+	        
+	        <field
+            name="GuestSurname"
+            type="text"
+	        description="Surname"
+	        label="Surname"
+	        class="inputbox"
+			default=""
+	        size="50" />      
+ 
+	
+	
+		<field name="Table" type="tablelist"
+			label="Requested Table" description="Request which table you wish to sit on."
+			class="inputbox" default="Any">
+			
+			
+		</field>
+		<field
+				name="Price"
+				type="list"
+				label="Price"
+				description="Ticket Prince"
+				class="inputbox"
+				
+				>
+			<option value="80">$80.00 - Members and Family</option>
+			<option value="100">$100.00 - Guests</option>
+			<option value="75">$75.00 - Students</option>
+			
+		</field>
+		
+		 <field
+            name="Comments"
+            type="text"
+	        description="Comments"
+	        label="Comments"
+	        class="inputbox"
+			default=""
+	        size="100" />  
+	</fieldset>
+</form>
