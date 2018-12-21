@@ -20,7 +20,7 @@ JHtml::_('formbehavior.chosen', 'select');
 	<div id="j-main-container" class="span10">
 	<?php foreach ($this->items as $i => $row) : ?>
 	<?php $bookingreference = $row->bookingref;  ?>
-		<h1>Booking <?php echo $row->bookingref; ?></h1>
+		<h1>Summary for booking <?php echo $row->bookingref; ?></h1>
 	<?php endforeach; ?>
 	
 	<table class="table table-striped table-hover">
@@ -91,11 +91,11 @@ JHtml::_('formbehavior.chosen', 'select');
 							<?php echo $row->bookingstatus; ?>
 						</td>
 						<td align="right">
-							<?php echo $row->bookingcost; ?>
+							$<?php echo $row->bookingcost; ?>
 						</td>
 						
 						<td align="right">
-							<?php echo $row->amountpaid; ?>
+							$<?php echo $row->amountpaid; ?>
 						</td>
 						<td align="center">
 							<?php echo $row->bookingpaid; ?>
@@ -124,7 +124,7 @@ JHtml::_('formbehavior.chosen', 'select');
 
 	<?php echo JHtml::_('form.token'); ?>
 	
-	<h2>Booking Details</h2>
+	<h2>Guest Details</h2>
 	<table class="table table-striped table-hover">
 		<thead>
 		<tr>
@@ -227,7 +227,7 @@ JHtml::_('formbehavior.chosen', 'select');
 							<?php echo $row->room; ?>
 						</td>
 						<td align="center">
-							<?php echo $row->cost; ?>
+							$<?php echo $row->cost; ?>
 						</td>
 						<td align="center">
 							<?php echo $row->vegetarian; ?>

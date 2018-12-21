@@ -30,6 +30,7 @@ defined('_JEXEC') or die('Restricted access');
                       <?php echo $this->form->renderField('wpdisc'); ?>
                 </div>
 				<div class="span6">
+				 <?php echo $this->form->renderField('cost'); ?> 
                  <?php echo $this->form->renderField('vegetarian'); ?>  
                  <?php echo $this->form->renderField('fridaydinner'); ?>   
                  <?php echo $this->form->renderField('datein'); ?>  

@@ -5,7 +5,7 @@
 		label="COM_BOOKINGADMIN_BOOKING"
 		addfieldpath="/administrator/components/com_bookingadmin/models/fields">
 		<field name="id" type="hidden" />
-		<field name="cost" type="hidden" />
+
 		<field
 				name="guestnum"
 				type="text"
@@ -75,7 +75,21 @@
 				>
 			 <option value="26+" >26+</option>
 		  	 <option value="18-25" >18-25</option>
-		  	 <option value="3-17" >3-17</option>
+		  	 <option value="17" >17</option>
+		  	 <option value="16" >16</option>
+		     <option value="15" >15</option>
+     	     <option value="14" >14</option>
+		  	 <option value="13" >13</option>
+		  	 <option value="12" >12</option>
+		  	 <option value="11" >11</option>
+		  	 <option value="10" >10</option>
+		  	 <option value="9" >9</option>
+		  	 <option value="8" >8</option>
+		  	 <option value="7" >7</option>
+		  	 <option value="6" >6</option>
+		  	 <option value="5" >5</option>
+		  	 <option value="4" >4</option>
+		  	 <option value="3" >3</option>
 		  	 <option value="0-2" >0-2</option>
 
 		</field>
@@ -110,6 +124,16 @@
 		  	 <option value="80" >80</option>
 
 		</field>
+		<field
+				name="cost"
+				type="text"
+				label="COM_BOOKINGADMIN_DETAIL_COST_LABEL"
+				description="COM_BOOKINGADMIN_DETAIL_COST_LABEL"
+				size="40"
+				class="inputbox"
+				default=""
+				readonly="true"
+				/>
 		<field
 				name="vegetarian"
 				type="list"

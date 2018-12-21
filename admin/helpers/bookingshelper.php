@@ -87,7 +87,7 @@ class BookingsHelper
 		// Calculate work party discount
 		$bookingcost = 0;
 		$wpdisc = 1;
-		$year = '2018'; // update to select current year
+		$year = '2018'; // update to select current year TODO - get this from booking reference
 		// get rates
 		$query->select ( '*' );
 		$query->from ( 'oscwinterrates' );
@@ -124,7 +124,8 @@ class BookingsHelper
 		} else if ($age == '18-25') 
 		{
 			$guestage = '2';
-		} else if ($age == '3-17') {
+		} else if ($age == '3-17' || $age=="17"|| $age=="16"|| $age=="15"|| $age=="14"|| $age=="13"|| $age=="12"|| $age=="11"|| $age=="10"|| $age=="9"|| $age=="8"|| $age=="7"|| $age=="6"|| $age=="5"|| $age=="4"|| $age=="3") 
+		{
 			$guestage = '1';
 		} else if ($age == '0-2') {
 			$guestage = '0';

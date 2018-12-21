@@ -21,6 +21,8 @@ use Joomla\Utilities\ArrayHelper;
 class BookingAdminControllerBookingDetail extends JControllerForm
 {
 	public function save($key = null, $urlVar = null) {
+	    
+	    // Override default save for an individual guest.
 
 	    JFactory::getApplication()->enqueueMessage('In local save');
 		// Get data
@@ -30,6 +32,7 @@ class BookingAdminControllerBookingDetail extends JControllerForm
 		$recordId = $this->input->getInt($urlVar);
 		$model        = $this->getModel(); // get model
 		$jinput = $app->input;
+		//JFactory::getApplication()->enqueueMessage('$jinput  = '.$jinput.":");
 		$bookingdetailid = $jinput->get('id','','text'); 
 		// index.php?option=com_bookingadmin&view=bookingdetail&layout=edit&id=7709
 		/*if ($bookingdetailid > 0) {
@@ -43,9 +46,12 @@ class BookingAdminControllerBookingDetail extends JControllerForm
 		// get booking reference from the session variable
 		$session = JFactory::getSession();
 		$bookingref = $session->get('bookingref');
-		$cost = $data['cost'];
+		$cost = $data['cost']; //$jinput->get('cost','0','float'); // 
+		JFactory::getApplication()->enqueueMessage('$cost  = '.$cost.":");
+		
 		if (strlen($cost) == 0) {
 		    $data['cost']=0;  // set a default cost.
+		    JFactory::getApplication()->enqueueMessage('setting cost to zero');
 		}
 		// Set redirection back to edit screen for error conditions.
 		$this->setRedirect(
@@ -109,12 +115,12 @@ class BookingAdminControllerBookingDetail extends JControllerForm
 		// get booking cost
 		$bookingcost = BookingsHelper::bookingCost($datein, $dateout, $data['age'], $data['memguest'],$data['memberval'],$data['fammemberval']);
 		JFactory::getApplication()->enqueueMessage('$bookingcost  = '.$bookingcost.":");
-		$data['cost']=$bookingcost;
-		$session->set('bookingcost',$bookingcost);
+		
 		// update additional values in the table or form
 		$wpdisc = BookingsHelper::workpartyDiscount($data['memguest'],$data['memberval']);
 		$bookingcost = ((100 - $wpdisc) / 100) * $bookingcost;  // apply work party discount
-		
+		$data['cost']=$bookingcost;
+		$session->set('bookingcost',$bookingcost);
 		// update overall booking cost
 		
 		$db = JFactory::getDbo ();
