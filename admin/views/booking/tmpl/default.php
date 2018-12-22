@@ -20,7 +20,7 @@ JHtml::_('formbehavior.chosen', 'select');
 	<div id="j-main-container" class="span10">
 	<?php foreach ($this->items as $i => $row) : ?>
 	<?php $bookingreference = $row->bookingref;  ?>
-		<h1>Summary for booking <?php echo $row->bookingref; ?></h1>
+		<h3>Summary for booking <?php echo $row->bookingref; ?></h3>
 	<?php endforeach; ?>
 	
 	<table class="table table-striped table-hover">
@@ -124,7 +124,7 @@ JHtml::_('formbehavior.chosen', 'select');
 
 	<?php echo JHtml::_('form.token'); ?>
 	
-	<h2>Guest Details</h2>
+	<h3>Details of Guests</h3>
 	<table class="table table-striped table-hover">
 		<thead>
 		<tr>
@@ -244,6 +244,15 @@ JHtml::_('formbehavior.chosen', 'select');
 		</tbody>
 		
 	</table>
-	
+	<h3>Costs and Payments</h3>
+	<table class="table table-striped table-hover">
+    	<thead>
+        	<tr>
+        		<th>Date</th>
+        	</tr>
+    	</thead>
+	<tbody>
+	</tbody>
+	</table>
 </div>
 </form>
