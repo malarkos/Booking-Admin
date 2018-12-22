@@ -248,18 +248,35 @@ JHtml::_('formbehavior.chosen', 'select');
 	<table class="table table-striped table-hover">
     	<thead>
         	<tr>
-        		<th>Date</th>
+        		<th><?php echo JText::_('COM_BOOKINGADMIN_FINANCE_DATE'); ?></th>
+        	
+        		<th><?php echo JText::_('COM_BOOKINGADMIN_FINANCE_AMOUNT'); ?></th>
+        	
+        		<th><?php echo JText::_('COM_BOOKINGADMIN_FINANCE_DESCRIPTION'); ?></th>
         	</tr>
     	</thead>
 	<tbody>
+	<?php $balancetopay= 0;?>
 	<?php if (!empty($this->financedetails)) : ?>
 		<?php foreach ($this->financedetails as $i => $row) : ?>
     		<tr>
     			<td>
     				<?php echo $row->TransactionDate; ?>
     			</td>
+    			<td>
+    				<?php echo $row->Amount; 
+    				$balancetopay += $row->Amount;
+    				?>
+    			</td>
+    			<td>
+    				<?php echo $row->Description; ?>
+    			</td>
     		</tr>
 		<? endforeach; ?>
+		<tr>
+			<td>Balance:</td>
+			<td>$<?php echo $balancetopay; ?> </td>
+		</tr>
 	<?php endif;?>
 	</tbody>
 	</table>
