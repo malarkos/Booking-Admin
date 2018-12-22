@@ -32,8 +32,9 @@ class BookingAdminViewBooking extends JViewLegacy
 	{
 	    
 			// Get data from the model
-		$this->items		= $this->get('Items'); // Get summary
-		$this->bookingdetails = $this->get('BookingDetails');
+		$this->items		= $this->get('Items'); // Get booking summary
+		$this->bookingdetails = $this->get('BookingDetails'); // Get individual guests
+		$this->financedetails = $this->get('FinanceDetails'); // get any payment details
 		
 		// call to get booking details
 		$this->pagination	= $this->get('Pagination');
@@ -70,6 +71,8 @@ class BookingAdminViewBooking extends JViewLegacy
 		JToolBarHelper::addNew('bookingdetail.add','Add Guest');
 		JToolBarHelper::editList('bookingdetail.edit','Edit Guest');
 		JToolBarHelper::custom('bookingdetail.deleteguest','trash.png', 'trash_f2.png','Delete Guest',true);
+		JToolBarHelper::custom('bookingsummary.approvebooking','featured.png', 'featured_f2.png','Approve Booking',false);
+		
 		JToolBarHelper::custom('bookingsummary.bookingpaid','featured.png', 'featured_f2.png','Booking Paid',false);
 		JToolBarHelper::custom('bookingsummary.sendmemberemail','featured.png', 'featured_f2.png','Send Member Email',false);
 		//JToolBarHelper::deleteList('', 'bookings.delete');

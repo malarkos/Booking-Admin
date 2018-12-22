@@ -168,4 +168,20 @@ class BookingAdminControllerBookingSummary extends JControllerForm
 	     $this->setRedirect($returnurl);
 	     return $return;
 	 }
+	 
+	 public function ApproveBooking ()
+	 {
+	     
+	     // Function to set booking status to Approved and create finance entry
+	     
+	     JFactory::getApplication()->enqueueMessage('in Approve Booking');
+	     
+	     $session = JFactory::getSession();
+	     $bookingref = $session->get('bookingref');
+	     //$return = parent::delete($key, $urlVar);
+	     $returnurl = 'index.php?option=com_bookingadmin&view=booking&bookingref='.$bookingref;
+	     
+	     $this->setRedirect($returnurl);
+	     return $return;
+	 }
 }

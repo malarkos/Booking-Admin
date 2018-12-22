@@ -252,6 +252,15 @@ JHtml::_('formbehavior.chosen', 'select');
         	</tr>
     	</thead>
 	<tbody>
+	<?php if (!empty($this->financedetails)) : ?>
+		<?php foreach ($this->financedetails as $i => $row) : ?>
+    		<tr>
+    			<td>
+    				<?php echo $row->TransactionDate; ?>
+    			</td>
+    		</tr>
+		<? endforeach; ?>
+	<?php endif;?>
 	</tbody>
 	</table>
 </div>

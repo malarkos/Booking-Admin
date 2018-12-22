@@ -73,4 +73,31 @@ class BookingAdminModelBooking extends JModelList
 	    
 	    return $bookingsummary;
 	}
+	
+	public function getFinanceDetails()
+	{
+	    // returns all finance details for a booking
+	    // Get database object
+	    $db = JFactory::getDbo ();
+	    $query = $db->getQuery ( true );
+	    
+	    // Get booking reference
+	    $jinput = JFactory::getApplication()->input;
+	    $bookingref = $jinput->get('bookingref','','text');
+	    //JFactory::getApplication()->enqueueMessage('Bookingref ='.$bookingref);
+	    $financeinfo = array();
+	    if (strlen($bookingref) > 0 ) {  // check we have a valid
+	        
+	        $query->select ( '*' );
+	        $query->from ( 'finances' );
+	        $like = $db->quote('%' . $bookingref . '%');
+	        $query->where('Description LIKE ' . $like. ' OR BookingReference = '.$bookingref);
+	        //JFactory::getApplication()->enqueueMessage('Query ='.$query);
+	        //$query->where ( 'Descri = ' . $bookingref );
+	        $db->setQuery ( $query );
+	        $financeinfo = $db->loadObjectList();
+	    }
+	    
+	    return $financeinfo;
+	}
 }
