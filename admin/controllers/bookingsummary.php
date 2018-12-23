@@ -172,13 +172,88 @@ class BookingAdminControllerBookingSummary extends JControllerForm
 	 public function ApproveBooking ()
 	 {
 	     
-	     // Function to set booking status to Approved and create finance entry
+	     // Function to set booking status to Approved, create finance entry and email Member
 	     
-	     JFactory::getApplication()->enqueueMessage('in Approve Booking');
-	     
+	     //JFactory::getApplication()->enqueueMessage('in Approve Booking');
 	     $session = JFactory::getSession();
 	     $bookingref = $session->get('bookingref');
-	     //$return = parent::delete($key, $urlVar);
+	     
+	     // Set status to Approved
+	     // update values
+	     $db = JFactory::getDbo ();
+	     $query = $db->getQuery ( true );
+	     
+	     $query->select ( 'bookingcost' );
+	     $query->from ( 'booking_summary' );
+	     $query->where ( 'bookingref = ' . $bookingref );
+	     $db->setQuery ( $query );
+	     $bookingcost= $db->loadResult();
+	     $query = $db->getQuery ( true );
+	     $query->select ( 'bookingstatus' );
+	     $query->from ( 'booking_summary' );
+	     $query->where ( 'bookingref = ' . $bookingref );
+	     $db->setQuery ( $query );
+	     $bookingstatus= $db->loadResult();
+	     
+	     // Bookings go from Draft -> Approved -> Confirmed (when paid)
+	     if ( $bookingstatus == "Draft") 
+	     {
+    	     $query = $db->getQuery ( true );
+    	     $fields = array('bookingstatus = '. $db->quote('Approved'));
+    	     $conditions = array('bookingref = '. $bookingref );
+    	     $query->update('booking_summary');
+    	     $query->set($fields);
+    	     $query->where($conditions);
+    	     //JFactory::getApplication()->enqueueMessage('query ='.$query);
+    	     $db->setQuery ( $query );
+    	     try
+    	     {
+    	         $db->execute();
+    	     }
+    	     catch (RuntimeException $e)
+    	     {
+    	         $this->setError($e->getMessage());
+    	         
+    	         return false;
+    	     }
+    	     
+    	     // Add Finance entry
+    	     
+    	     // Email member
+    	     
+    	     
+	     } // if booking status == draft
+	     else
+	     {
+	         JFactory::getApplication()->enqueueMessage('Only Draft bookings can be approved.');
+	     }
+	    
+	     
+	    
+	     $returnurl = 'index.php?option=com_bookingadmin&view=booking&bookingref='.$bookingref;
+	     
+	     $this->setRedirect($returnurl);
+	     return $return;
+	 }
+	 
+	 public function cancelBooking ()
+	 {
+	     // Get booking ref from session variable
+	     $session = JFactory::getSession();
+	     $bookingref = $session->get('bookingref');
+	     
+	     $app    = JFactory::getApplication();  // get instance of app
+	     $jinput = $app->input;
+	     //JFactory::getApplication()->enqueueMessage('$jinput  = '.$jinput.":");
+	     $refund = $jinput->get('refund','','text'); 
+	     
+	     JFactory::getApplication()->enqueueMessage('Refund =  '.$refund.":");
+	     
+	     // Set status to Cancelled
+	     // Delete any room bookings
+	     // Is it 0% refund, 80% refund or 100% refund
+	     
+	     // Set return URL
 	     $returnurl = 'index.php?option=com_bookingadmin&view=booking&bookingref='.$bookingref;
 	     
 	     $this->setRedirect($returnurl);

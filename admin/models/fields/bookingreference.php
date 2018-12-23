@@ -38,7 +38,7 @@ class JFormFieldBookingReference extends JFormFieldList
 		$query->select('bookid, bookingref');
 		$query->from('booking_summary');  
         
-        $query->order('bookid DESC'); // sort by firstname, then surname
+        $query->order('bookid DESC'); // sort by most recent bookings first
        
         $db->setQuery((string) $query);
 		$messages = $db->loadObjectList();

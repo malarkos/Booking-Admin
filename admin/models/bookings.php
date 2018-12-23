@@ -92,6 +92,8 @@ class BookingAdminModelBookings extends JModelList
 		
 		//$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
 		//JFactory::getApplication()->enqueueMessage($query);
+		
+		// TODO: add a filter for Booking status
 		return $query;
 	}
 }

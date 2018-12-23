@@ -26,9 +26,10 @@ JHtml::_('formbehavior.chosen', 'select');
 	<table class="table table-striped table-hover">
 		<thead>
 		<tr>
-			<th width="10%">
-				<?php echo JText::_('COM_BOOKINGADMIN_NUM'); ?>
+			<th width="5%">
+				<?php echo JText::_('COM_BOOKINGADMIN_EDIT'); ?>
 			</th>
+			
 			<th width="10%">
 				<?php echo JText::_('COM_BOOKINGADMIN_DATE'); ?>
 			</th>
@@ -57,11 +58,14 @@ JHtml::_('formbehavior.chosen', 'select');
 			<th width="20%">
 				<?php echo JText::_('COM_BOOKINGADMIN_COMMENT_LABEL'); ?>
 			</th>
+			<th width="5%">
+				<?php echo JText::_('COM_BOOKINGADMIN_REFUND'); ?>
+			</th>
 		</tr>
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="9">
+				<td colspan="10">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -70,15 +74,17 @@ JHtml::_('formbehavior.chosen', 'select');
 			<?php if (!empty($this->items)) : ?>
 				<?php foreach ($this->items as $i => $row) : 
 					$link = JRoute::_('index.php?option=com_bookingadmin&task=bookingsummary.edit&bookid=' . $row->bookid);
+					$link0 = JRoute::_('index.php?option=com_bookingadmin&task=bookingsummary.cancelbooking&bookid=' . $row->bookid.'&refund=0');
+					$link80= JRoute::_('index.php?option=com_bookingadmin&task=bookingsummary.cancelbooking&bookid=' . $row->bookid.'&refund=80');
+					$link100 = JRoute::_('index.php?option=com_bookingadmin&task=bookingsummary.cancelbooking&bookid=' . $row->bookid.'&refund=100');
 					$linkdetails = JRoute::_('index.php?option=com_bookingadmin&view=bookingsummary&bookingref=' . $row->bookingref);
 				?>
  
 					<tr>
 						<td>
-						<a href="<?php echo $link; ?>">
-									Edit
-								</a>
+							<a href="<?php echo $link; ?>">Edit</a>
 						</td>
+						
 						<td align="center">
 							<?php echo $row->bookingmade; ?>
 						</td>
@@ -113,6 +119,11 @@ JHtml::_('formbehavior.chosen', 'select');
 						</td>
 						<td >
 							<?php echo $row->comment; ?>
+						</td>
+						<td>
+								<a href="<?php echo $link0; ?>">0%</a>
+							<a href="<?php echo $link80; ?>">80%</a>
+							<a href="<?php echo $link100; ?>">100%</a>
 						</td>
 					</tr>
 				<?php endforeach; ?>

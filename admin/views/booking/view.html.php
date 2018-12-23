@@ -74,6 +74,8 @@ class BookingAdminViewBooking extends JViewLegacy
 		JToolBarHelper::custom('bookingsummary.approvebooking','featured.png', 'featured_f2.png','Approve Booking',false);
 		
 		JToolBarHelper::custom('bookingsummary.bookingpaid','featured.png', 'featured_f2.png','Booking Paid',false);
+		//JToolBarHelper::custom('bookingsummary.cancelbooking','featured.png', 'featured_f2.png','Cancel Booking',false);
+		
 		JToolBarHelper::custom('bookingsummary.sendmemberemail','featured.png', 'featured_f2.png','Send Member Email',false);
 		//JToolBarHelper::deleteList('', 'bookings.delete');
 	}
