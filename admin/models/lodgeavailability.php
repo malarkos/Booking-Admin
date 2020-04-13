@@ -40,28 +40,40 @@ class BookingAdminModelLodgeAvailability extends JModelList
 		// Initialize variables.
 		$db    = JFactory::getDbo();
 		$query = $db->getQuery(true);
- 
+		
+        //JFactory::getApplication()->enqueueMessage("year".$year);
 		// Create the base select statement.
 		//$query->select('o.*,date_format(DateBooked,\'%d-%m-%y\') as datebookingmade,date_format(DatePaid,\'%d-%m-%y\') as datebookingpaid,concat(m.MemberFirstname,\' \',m.MemberSurname) as membername,t.TableName as tablename');
 		//$query->from('osc50bookings AS o');
 		
+		// Filter on booking year
+		// TODO: Get filtering working properly
+		
+		$bookingyear = $this->getState('filter.bookingyear');
+		if(empty($bookingyear)) {
+		    $bookingyear = date('Y'); // Set to current year
+		}
+		
+		JFactory::getApplication()->enqueueMessage("bookingyear".$bookingyear);
+		$year = $db->quote( $bookingyear.'-01-01');
+		JFactory::getApplication()->enqueueMessage("year".$year);
+		
 		$query->select('roomnight, count(\'roomnight\') as roomnightcount');
 		$query->from('booking_rooms');
-		$query->where('roomnight like \'2018%\'');
+		$query->where('roomnight >  '.$year);
 		$query->where('bookingref > 0');
         $query->group('roomnight');
         
-        // Filter on booking year
-        $bookingyear = $this->getState('filter.bookingyear');
-        JFactory::getApplication()->enqueueMessage("bookingyear".$bookingyear);
-        if ($bookingyear > 0)
+        
+        
+        /*if ($bookingyear > 0)
         {
             $bookinglike = $db->quote( $bookingyear . '%');
-            JFactory::getApplication()->enqueueMessage("bookinglike".$bookinglike);
+            //JFactory::getApplication()->enqueueMessage("bookinglike".$bookinglike);
             $query->where('roomnight LIKE ' . $bookinglike);
-        }
+        }*/
         
-        JFactory::getApplication()->enqueueMessage('Lodge Availability search query = '.$query);
+        //JFactory::getApplication()->enqueueMessage('Lodge Availability search query = '.$query);
 		return $query;
 	}
 	
@@ -75,6 +87,9 @@ class BookingAdminModelLodgeAvailability extends JModelList
 	    $limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->get('list_limit'));
 	    
 	    $limit = 2000;  // set list limit
+	    
+	    $bookingyear = $app->getUserStateFromRequest($this->context . 'filter.bookingyear', 'filter_bookingyear', '', 'string');
+	    $this->setState('filter.bookingyear', $bookingyear);
 	    
 	}
 }
