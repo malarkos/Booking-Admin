@@ -110,7 +110,7 @@ class BookingAdminModelWinterBooking extends JModelList
 				$bookingdetail[$i]->guestsurname = $membersurname;
 			}
 			// if f = family, s = spouse, c = child get from family member
-			if($memguest == 's' || $memguest == 'f' || $memguest == 'c') {
+			if($memguest == 's' || $memguest == 'f' || $memguest == 'c') { 
 				$query = $db->getQuery ( true );
 				$query->select ( 'FamilyMemberFirstname' );
 				$query->from ( 'familymembers' );

@@ -9,7 +9,10 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
-
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\MVC\View\HtmlView;
+use Joomla\CMS\Toolbar\ToolbarHelper;
+use Joomla\CMS\Toolbar\Toolbar;
 /**
  * HTML View class for the HelloWorld Component
  *
@@ -27,7 +30,7 @@ class BookingAdminViewWinterBookings extends JViewLegacy
 	function display($tpl = null)
 	{
 		// Assign data to the view
-		$this->msg = 'Winter Lodge ookings';  // get default message
+		$this->msg = 'Winter Lodge Bookings';  // get default message
 
 		$this->items = $this->get('Items');  // get the items
 		

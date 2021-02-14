@@ -56,7 +56,7 @@ class BookingAdminModelWinterBookings extends JModelList
                     ');
 		$query->order('bookingmade DESC');
 	
-		$app->enqueueMessage('query = '.$query.';');
+		//$app->enqueueMessage('query = '.$query.';');
 		
 		return $query;
 	}
