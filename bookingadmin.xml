@@ -3,14 +3,14 @@
  
 	<name>COM_BOOKINGADMIN</name>
 	<!-- The following elements are optional and free of formatting constraints -->
-	<creationDate>13 Apr 2020</creationDate>
+	<creationDate>14 Feb 2021</creationDate>
 	<author>Geoff Markley</author>
 	<authorEmail>general@ormondskiclub.com.au</authorEmail>
 	<authorUrl>www.ormondskiclub.com.au</authorUrl>
 	<copyright>Copyright Info</copyright>
 	<license>License Info</license>
 	<!--  The version string is recorded in the components table -->
-	<version>2.0.6.3</version>
+	<version>2.0.7.0</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_BOOKINGADMIN_DESCRIPTION</description>
  
