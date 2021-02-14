@@ -27,7 +27,7 @@ class BookingAdminViewBookingAdmin extends JViewLegacy
 	function display($tpl = null)
 	{
 		// Assign data to the view
-		$this->msg = 'Member Bookings';
+		$this->msg = 'Lodge bookings';
 
 		// Display the view
 		parent::display($tpl);
