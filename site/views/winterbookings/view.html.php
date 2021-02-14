@@ -27,7 +27,7 @@ class BookingAdminViewWinterBookings extends JViewLegacy
 	function display($tpl = null)
 	{
 		// Assign data to the view
-		$this->msg = 'Winter Bookings';  // get default message
+		$this->msg = 'Winter Lodge ookings';  // get default message
 
 		$this->items = $this->get('Items');  // get the items
 		

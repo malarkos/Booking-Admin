@@ -11,6 +11,8 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
+JLoader::register('BookingsHelper', JPATH_SITE . '/components/com_bookingadmin/helpers/bookingshelper.php');
+
 /**
  * HelloWorld Model
  *
@@ -39,13 +41,23 @@ class BookingAdminModelWinterBookings extends JModelList
 		// Initialize variables.
 		$db    = JFactory::getDbo();
 		$query = $db->getQuery(true);
+		
+		$memid = BookingsHelper::getMemberID();
+		
+		$app = JFactory::getApplication ();
+		//$app->enqueueMessage('Member ID = '.$memid.';');
 	
 		// Create the base select statement.
 		$query->select('*');
 		$query->from('booking_summary');
-		$query->where('memid=351 and bookingstatus = \'Confirmed\'');
+		$query->where('memid = '.$memid. ' 
+                    and 
+                    ( bookingstatus = \'Confirmed\' OR bookingstatus =  \'Draft\')
+                    ');
 		$query->order('bookingmade DESC');
 	
+		$app->enqueueMessage('query = '.$query.';');
+		
 		return $query;
 	}
 } // class
