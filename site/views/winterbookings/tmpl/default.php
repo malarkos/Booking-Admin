@@ -2,9 +2,12 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
+
+
 <h3><?php echo $this->msg; ?></h3>
 
 <h4>Current Bookings</h4>
+<?php $this->renderToolbar()->render(); ?>
 
 <h4>Past bookings</h4>
 <table class="table table-striped table-hover">

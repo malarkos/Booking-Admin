@@ -34,4 +34,15 @@ class BookingAdminControllerWinterBooking extends JControllerAdmin
 
 		return $model;
 	}
+	
+	public function createNew()
+	{
+	    $app = JFactory::getApplication();
+	    $app->enqueueMessage('In Create new');
+	    
+	    $this->setRedirect(JRoute::_('index.php?option=com_bookingadmin&view=winterbookings', false));
+	    
+	    
+	    
+	}
 }

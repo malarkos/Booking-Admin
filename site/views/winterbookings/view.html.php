@@ -9,10 +9,12 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
-use Joomla\CMS\Language\Text;
-use Joomla\CMS\MVC\View\HtmlView;
-use Joomla\CMS\Toolbar\ToolbarHelper;
-use Joomla\CMS\Toolbar\Toolbar;
+
+//use Joomla\CMS\Language\Text;
+//use Joomla\CMS\MVC\View\HtmlView;
+//use Joomla\CMS\Toolbar\ToolbarHelper;
+//use Joomla\CMS\Toolbar\Toolbar;
+
 /**
  * HTML View class for the HelloWorld Component
  *
@@ -20,6 +22,7 @@ use Joomla\CMS\Toolbar\Toolbar;
  */
 class BookingAdminViewWinterBookings extends JViewLegacy
 {
+    
 	/**
 	 * Display the Hello World view
 	 *
@@ -34,7 +37,30 @@ class BookingAdminViewWinterBookings extends JViewLegacy
 
 		$this->items = $this->get('Items');  // get the items
 		
+		//$this->renderToolbar();
+		
 		// Display the view
 		parent::display($tpl);
+	}
+	
+	protected function renderToolbar(){
+	    
+	    JLoader::register('JToolbarHelper', JPATH_ADMINISTRATOR.'/includes/toolbar.php');
+	    
+	    
+	    $app = JFactory::getApplication();
+	    $app->enqueueMessage('render toolbar');
+	    
+	    $title = JText::_('COM_BOOKINGADMIN_WINTERBOOKINGS_MENU');
+	    
+	    JToolbarHelper::title($title);
+	    JToolbarHelper::addNew('winterbooking.createnew', 'COM_BOOKINGADMIN_WINTERBOOKINGS_CREATEBOOKING');
+	    //JToolBarHelper::addNew('invoic.add', 'JTOOLBAR_NEW');
+	    //ToolbarHelper::back();
+	    //ToolbarHelper::help('JHELP_COMPONENTS_ACTIONLOGS');
+	    
+	    $this->toolbar = JToolbar::getInstance();
+	    
+	    return $this->toolbar;
 	}
 }
