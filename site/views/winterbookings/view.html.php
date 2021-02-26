@@ -49,7 +49,7 @@ class BookingAdminViewWinterBookings extends JViewLegacy
 	    
 	    
 	    $app = JFactory::getApplication();
-	    $app->enqueueMessage('render toolbar');
+	    //$app->enqueueMessage('render toolbar');
 	    
 	    $title = JText::_('COM_BOOKINGADMIN_WINTERBOOKINGS_MENU');
 	    
